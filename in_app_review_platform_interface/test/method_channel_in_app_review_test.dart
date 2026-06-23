@@ -40,30 +40,24 @@ void main() {
       .setMockMethodCallHandler(channel, mockMethodCallHandler);
 
   group('isAvailable', () {
-    test(
-      'should invoke the isAvailable method channel',
-      () async {
-        // ACT
-        final result = await methodChannelInAppReview.isAvailable();
+    test('should invoke the isAvailable method channel', () async {
+      // ACT
+      final result = await methodChannelInAppReview.isAvailable();
 
-        // ASSERT
-        expect(log, <Matcher>[isMethodCall('isAvailable', arguments: null)]);
-        expect(result, isTrue);
-      },
-    );
+      // ASSERT
+      expect(log, <Matcher>[isMethodCall('isAvailable', arguments: null)]);
+      expect(result, isTrue);
+    });
   });
 
   group('requestReview', () {
-    test(
-      'should invoke the requestReview method channel',
-      () async {
-        // ACT
-        await methodChannelInAppReview.requestReview();
+    test('should invoke the requestReview method channel', () async {
+      // ACT
+      await methodChannelInAppReview.requestReview();
 
-        // ASSERT
-        expect(log, <Matcher>[isMethodCall('requestReview', arguments: null)]);
-      },
-    );
+      // ASSERT
+      expect(log, <Matcher>[isMethodCall('requestReview', arguments: null)]);
+    });
   });
 
   group('openStoreListing', () {
@@ -71,57 +65,57 @@ void main() {
       'should invoke the openStoreListing method channel on Android',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform =
-            FakePlatform(operatingSystem: 'android');
+        methodChannelInAppReview.platform = FakePlatform(
+          operatingSystem: 'android',
+        );
 
         // ACT
         await methodChannelInAppReview.openStoreListing();
 
         // ASSERT
-        expect(
-          log,
-          <Matcher>[isMethodCall('openStoreListing', arguments: null)],
-        );
+        expect(log, <Matcher>[
+          isMethodCall('openStoreListing', arguments: null),
+        ]);
       },
     );
-    test(
-      'should invoke the openStoreListing method channel on iOS',
-      () async {
-        // ARRANGE
-        methodChannelInAppReview.platform =
-            FakePlatform(operatingSystem: 'ios');
-        final appStoreId = "store_id";
+    test('should invoke the openStoreListing method channel on iOS', () async {
+      // ARRANGE
+      methodChannelInAppReview.platform = FakePlatform(operatingSystem: 'ios');
+      final appStoreId = "store_id";
 
-        // ACT
-        await methodChannelInAppReview.openStoreListing(appStoreId: appStoreId);
+      // ACT
+      await methodChannelInAppReview.openStoreListing(appStoreId: appStoreId);
 
-        // ASSERT
-        expect(log,
-            <Matcher>[isMethodCall('openStoreListing', arguments: appStoreId)]);
-      },
-    );
+      // ASSERT
+      expect(log, <Matcher>[
+        isMethodCall('openStoreListing', arguments: appStoreId),
+      ]);
+    });
     test(
       'should invoke the openStoreListing method channel on MacOS',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform =
-            FakePlatform(operatingSystem: 'macos');
+        methodChannelInAppReview.platform = FakePlatform(
+          operatingSystem: 'macos',
+        );
         final appStoreId = "store_id";
 
         // ACT
         await methodChannelInAppReview.openStoreListing(appStoreId: appStoreId);
 
         // ASSERT
-        expect(log,
-            <Matcher>[isMethodCall('openStoreListing', arguments: appStoreId)]);
+        expect(log, <Matcher>[
+          isMethodCall('openStoreListing', arguments: appStoreId),
+        ]);
       },
     );
     test(
       'should invoke the openStoreListing method channel on Windows',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform =
-            FakePlatform(operatingSystem: 'windows');
+        methodChannelInAppReview.platform = FakePlatform(
+          operatingSystem: 'windows',
+        );
         final microsoftStoreId = 'store_id';
 
         // ACT
@@ -131,7 +125,7 @@ void main() {
 
         // ASSERT
         expect(log, <Matcher>[
-          isMethodCall('openStoreListing', arguments: microsoftStoreId)
+          isMethodCall('openStoreListing', arguments: microsoftStoreId),
         ]);
       },
       skip:

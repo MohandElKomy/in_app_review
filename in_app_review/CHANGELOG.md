@@ -1,5 +1,11 @@
 # Alterações
 
+## [2.0.13]
+
+- Migrated Android build to Built-in Kotlin (removes Kotlin Gradle Plugin warning).
+- Upgraded environment requirements to Dart 3.12.0+ and Flutter 3.44.0+.
+- Enabled builtInKotlin and newDsl flags in the example application's gradle properties.
+
 ## [2.0.12]
 
 - Atualizado Pacotes e Corrigido Erro de PackageManager;

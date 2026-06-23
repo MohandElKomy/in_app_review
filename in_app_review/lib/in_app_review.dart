@@ -42,9 +42,8 @@ class InAppReview {
 
     /// Required for Windows.
     String? microsoftStoreId,
-  }) =>
-      InAppReviewPlatform.instance.openStoreListing(
-        appStoreId: appStoreId,
-        microsoftStoreId: microsoftStoreId,
-      );
+  }) => InAppReviewPlatform.instance.openStoreListing(
+    appStoreId: appStoreId,
+    microsoftStoreId: microsoftStoreId,
+  );
 }

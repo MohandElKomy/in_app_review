@@ -22,7 +22,6 @@ allprojects {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 android {
     // Conditional for compatibility with AGP <4.2.
@@ -37,9 +36,6 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = '17'
-    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -55,5 +51,11 @@ android {
         implementation 'com.google.android.gms:play-services-base:18.2.0'
 
 
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }

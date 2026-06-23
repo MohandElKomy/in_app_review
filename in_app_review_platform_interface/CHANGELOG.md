@@ -1,3 +1,9 @@
+# [2.0.7]
+- Upgrade environment SDK requirements to Dart 3.12.0+ and Flutter 3.44.0+.
+
+# [2.0.6]
+- Maintenance update.
+
 # [2.0.5]
 - Update tests to be compatible with the latest version of flutter.
 

@@ -50,9 +50,9 @@ class InAppReviewExampleAppState extends State<InAppReviewExampleApp> {
   Future<void> _requestReview() => _inAppReview.requestReview();
 
   Future<void> _openStoreListing() => _inAppReview.openStoreListing(
-        appStoreId: _appStoreId,
-        microsoftStoreId: _microsoftStoreId,
-      );
+    appStoreId: _appStoreId,
+    microsoftStoreId: _microsoftStoreId,
+  );
 
   @override
   Widget build(BuildContext context) {
