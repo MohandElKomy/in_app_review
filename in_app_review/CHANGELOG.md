@@ -1,5 +1,9 @@
 # Alterações
 
+## [2.0.14]
+
+- Fixed deprecated `getInstallerPackageName` warning by using `getInstallSourceInfo` on Android 11+ and suppressing legacy warnings.
+
 ## [2.0.13]
 
 - Migrated Android build to Built-in Kotlin (removes Kotlin Gradle Plugin warning).

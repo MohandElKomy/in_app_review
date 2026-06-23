@@ -192,6 +192,7 @@ public class InAppReviewPlugin implements FlutterPlugin, MethodCallHandler, Acti
         flow.addOnCompleteListener(task -> result.success(null));
     }
 
+    @SuppressWarnings("deprecation")
     private boolean isPlayStoreInstalled() {
         try {
             PackageManager pm = context.getPackageManager();
@@ -224,9 +225,20 @@ public class InAppReviewPlugin implements FlutterPlugin, MethodCallHandler, Acti
         return true;
     }
 
+    @SuppressWarnings("deprecation")
     private boolean appInstalledBySupportedStore() {
         final List<String> validInstallers = new ArrayList<>(Arrays.asList("com.android.vending"));
-        final String installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
+        final String installer;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                installer = context.getPackageManager().getInstallSourceInfo(context.getPackageName()).getInstallingPackageName();
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
+            }
+        } else {
+            //noinspection deprecation
+            installer = context.getPackageManager().getInstallerPackageName(context.getPackageName());
+        }
         Log.i(TAG, "appInstalledBySupportedStore: installer: " + installer);
         return installer != null && validInstallers.contains(installer);
     }
