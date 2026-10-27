@@ -1,3 +1,6 @@
+# [2.0.8]
+- Upgrade `url_launcher` to ^6.3.3 and `platform` to ^3.2.0; migrate from deprecated `LocalPlatform`/`FakePlatform` to `NativePlatform`/`TestNativePlatform`.
+
 # [2.0.7]
 - Upgrade environment SDK requirements to Dart 3.12.0+ and Flutter 3.44.0+.
 

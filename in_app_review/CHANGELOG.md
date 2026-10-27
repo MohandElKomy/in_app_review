@@ -1,5 +1,9 @@
 # Alterações
 
+## [2.0.15]
+
+- Upgrade `url_launcher` to ^6.3.3, `platform` to ^3.2.0 and `mockito` to ^5.8.1.
+
 ## [2.0.14]
 
 - Fixed deprecated `getInstallerPackageName` warning by using `getInstallSourceInfo` on Android 11+ and suppressing legacy warnings.
