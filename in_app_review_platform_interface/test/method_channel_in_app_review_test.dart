@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:in_app_review_platform_interface/method_channel_in_app_review.dart';
-import 'package:platform/platform.dart';
+import 'package:platform/testing.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -65,7 +65,7 @@ void main() {
       'should invoke the openStoreListing method channel on Android',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform = FakePlatform(
+        methodChannelInAppReview.platform = TestNativePlatform(
           operatingSystem: 'android',
         );
 
@@ -80,7 +80,9 @@ void main() {
     );
     test('should invoke the openStoreListing method channel on iOS', () async {
       // ARRANGE
-      methodChannelInAppReview.platform = FakePlatform(operatingSystem: 'ios');
+      methodChannelInAppReview.platform = TestNativePlatform(
+        operatingSystem: 'ios',
+      );
       final appStoreId = "store_id";
 
       // ACT
@@ -95,7 +97,7 @@ void main() {
       'should invoke the openStoreListing method channel on MacOS',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform = FakePlatform(
+        methodChannelInAppReview.platform = TestNativePlatform(
           operatingSystem: 'macos',
         );
         final appStoreId = "store_id";
@@ -113,7 +115,7 @@ void main() {
       'should invoke the openStoreListing method channel on Windows',
       () async {
         // ARRANGE
-        methodChannelInAppReview.platform = FakePlatform(
+        methodChannelInAppReview.platform = TestNativePlatform(
           operatingSystem: 'windows',
         );
         final microsoftStoreId = 'store_id';
